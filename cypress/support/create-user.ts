@@ -24,7 +24,7 @@ async function createAndLogin(email: string) {
 
   const response = await createUserSession({
     request: new Request("test://test"),
-    userId: user.id,
+    userId: user!.id,
     remember: false,
     redirectTo: "/",
   });

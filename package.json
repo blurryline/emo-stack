@@ -10,7 +10,7 @@
     "format:repo": "npm run format && npm run lint:repo -- --fix",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "lint:repo": "npm run lint -- --config .eslintrc.repo.js",
-    "setup": "prisma generate && prisma migrate deploy && prisma db seed",
+    "setup": "node ./mongodb/seed.js",
     "start": "remix-serve build",
     "start:mocks": "binode --require ./mocks -- @remix-run/serve:remix-serve build",
     "test": "vitest",
@@ -27,13 +27,14 @@
     "/public/build"
   ],
   "dependencies": {
-    "@prisma/client": "^4.16.2",
     "@remix-run/css-bundle": "*",
     "@remix-run/node": "*",
     "@remix-run/react": "*",
     "@remix-run/serve": "*",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
     "isbot": "^3.6.13",
+    "mongodb": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tiny-invariant": "^1.3.1"
@@ -67,7 +68,6 @@
     "postcss": "^8.4.28",
     "prettier": "3.0.2",
     "prettier-plugin-tailwindcss": "^0.5.3",
-    "prisma": "^4.16.2",
     "start-server-and-test": "^2.0.0",
     "tailwindcss": "^3.3.3",
     "ts-node": "^10.9.1",

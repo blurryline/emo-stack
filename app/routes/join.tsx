@@ -59,7 +59,7 @@ export const action = async ({ request }: ActionArgs) => {
     redirectTo,
     remember: false,
     request,
-    userId: user.id,
+    userId: user!.id,
   });
 };
 
